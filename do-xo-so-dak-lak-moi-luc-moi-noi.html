@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dò Xổ Số Đắk Lắk mọi lúc mọi nơi - Michael Ryan Blog</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.5);
+        }
+        .emerald-gradient-text {
+            background: linear-gradient(135deg, #a7f3d0 0%, #10b981 50%, #047857 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 w-full glass-panel border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Brand -->
+                <a href="https://michaelryan-03.netlify.app/" class="flex items-center gap-3.5 group">
+                    <div class="relative">
+                        <img src="https://sf-static.upanhlaylink.com/img/image_2026100959b871c14827a471570188c38fe7108c.jpg" 
+                             alt="Michael Ryan" 
+                             class="w-11 h-11 rounded-full object-cover border-2 border-emerald-500/80 group-hover:scale-105 transition-transform duration-300 shadow-lg shadow-emerald-500/20">
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-slate-950 rounded-full"></span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-lg font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">Michael Ryan</span>
+                        <span class="text-xs text-slate-400 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check text-emerald-400 text-[10px]"></i> Blog Cá Nhân & Tra cứu XS
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-slate-800">
+                    <a href="https://michaelryan-03.netlify.app/" class="px-4 py-2 text-sm font-medium text-white bg-emerald-600/90 rounded-full shadow-sm shadow-emerald-500/30">Trang chủ</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-950/95 px-4 pt-3 pb-6 space-y-3">
+            <a href="https://michaelryan-03.netlify.app/" class="block px-3 py-2 rounded-lg text-base font-medium text-white bg-emerald-600/30 border border-emerald-500/30">Trang chủ</a>
+            <a href="https://xosodaiphat.com" target="_blank" rel="noopener" class="block text-center w-full mt-2 px-4 py-3 rounded-xl font-semibold text-sm text-white bg-gradient-to-r from-emerald-600 to-teal-600">
+                <i class="fa-solid fa-bolt text-yellow-300 mr-2"></i> Tra cứu Xổ Số Đại Phát
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12" id="trang-chu">
+
+        <!-- Hero Banner Section -->
+        <section class="relative rounded-3xl overflow-hidden glass-panel border border-slate-800/80 shadow-2xl">
+            <div class="relative h-64 sm:h-80 md:h-[380px] w-full overflow-hidden">
+                <img src="https://sf-static.upanhlaylink.com/img/image_202610090b1ade2dcc4db84c8906a1cf7f676667.jpg" 
+                     alt="Michael Ryan Banner" 
+                     class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-1000">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+                <div class="absolute inset-0 bg-emerald-950/25 mix-blend-overlay"></div>
+            </div>
+
+            <div class="relative px-6 pb-8 pt-0 sm:px-10 flex flex-col md:flex-row items-center md:items-end gap-6 -mt-20 sm:-mt-24">
+                <div class="relative group flex-shrink-0">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-green-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                    <img src="https://sf-static.upanhlaylink.com/img/image_2026100959b871c14827a471570188c38fe7108c.jpg" 
+                         alt="Michael Ryan Avatar" 
+                         class="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-slate-950 shadow-2xl">
+                    <span class="absolute bottom-2 right-2 w-6 h-6 bg-emerald-500 border-4 border-slate-950 rounded-full flex items-center justify-center text-[10px] text-white font-bold" title="Trạng thái: Trực tuyến">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+                </div>
+
+                <div class="flex-1 text-center md:text-left space-y-2">
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 backdrop-blur-md">
+                            <i class="fa-solid fa-pen-nib mr-1"></i> Blogger & Reviewer
+                        </span>
+                        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 backdrop-blur-md">
+                            <i class="fa-solid fa-calendar-check mr-1"></i> Trực tiếp Xổ Số Đắk Lắk Thứ 3
+                        </span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+                        Michael Ryan
+                    </h1>
+                    
+                    <p class="text-slate-300 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+                        Chuyên trang chia sẻ cảm xúc và địa chỉ tra cứu kết quả xổ số kiến thiết Đắk Lắk mượt mà, chuẩn xác tại Xổ Số Đại Phát.
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-3 w-full md:w-auto justify-center">
+                    <a href="https://michaelryan-03.netlify.app/" class="px-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 text-xs font-semibold text-slate-200 hover:text-white hover:border-slate-500 transition flex items-center gap-2">
+                        <i class="fa-solid fa-globe text-emerald-400"></i>
+                        <span>michaelryan-03.netlify.app</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Article Grid -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Article Body (8 Cols) -->
+            <article class="lg:col-span-8 glass-panel rounded-3xl p-6 sm:p-10 border border-slate-800/80 space-y-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <!-- Article Header -->
+                <div class="border-b border-slate-800/80 pb-6 space-y-4">
+                    <div class="flex items-center gap-3 text-xs text-slate-400">
+                        <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-semibold">
+                            Xổ Số Miền Trung
+                        </span>
+                        <span>•</span>
+                        <span class="flex items-center gap-1"><i class="fa-regular fa-clock"></i> Cập nhật Thứ 3 hàng tuần</span>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
+                        Dò Xổ Số Đắk Lắk mọi lúc mọi nơi
+                    </h1>
+                </div>
+
+                <!-- Main Text Content -->
+                <div class="space-y-6 text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
+                    <p>
+                        Xổ số kiến thiết từ lâu đã trở thành một nét văn hóa giải trí lành mạnh và mang đậm tinh thần ích nước lợi nhà đối với người dân vùng đất Tây Nguyên đầy nắng gió.
+                    </p>
+                    
+                    <p>
+                        Trong đó, xổ số Đắk Lắk luôn nhận được sự quan tâm đặc biệt từ phía anh chị bởi tính minh bạch và những giá trị đóng góp cho ngân sách địa phương. Với sự phát triển của công nghệ số, việc theo dõi kết quả trúng thưởng <a href="https://xosodaiphat.com/xsdlk-xo-so-dak-lak.html" target="_blank" rel="noopener" class="text-emerald-400 font-semibold underline underline-offset-4 hover:text-emerald-300">xsdlk</a> giờ đây đã trở nên đơn giản hơn bao giờ hết.
+                    </p>
+
+                    <!-- Image 1 -->
+                    <div class="my-8 text-center space-y-2">
+                        <div class="rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-900 shadow-xl">
+                            <img src="https://sf-static.upanhlaylink.com/img/image_20261015066444902812d05200d7d6ce00367afb.jpg" 
+                                 alt="Dò xổ số Đắk Lắk trực tuyến" 
+                                 class="w-full h-auto object-cover max-h-[450px]">
+                        </div>
+                        <p class="text-xs text-slate-400 italic">Nguồn ảnh: Internet</p>
+                    </div>
+
+                    <p>
+                        Anh chị không còn phải chờ đợi trước màn hình tivi hay tìm kiếm các sạp vé số để dò kết quả như trước, mà hoàn toàn có thể chủ động cập nhật thông tin ngay trên các thiết bị di động cá nhân.
+                    </p>
+
+                    <h2 class="text-xl sm:text-2xl font-bold text-emerald-400 pt-4 border-t border-slate-800/80 flex items-center gap-2">
+                        <i class="fa-solid fa-mobile-screen-button text-lg"></i>
+                        Trải Nghiệm Dò Số Hiện Đại Trên Nền Tảng Số
+                    </h2>
+
+                    <p>
+                        Trong thời đại hiện nay, trải nghiệm người dùng luôn là yếu tố được đặt lên hàng đầu. Một trang web tra cứu xổ số tiêu chuẩn cần đáp ứng được tiêu chí tốc độ tải trang mượt mà, thao tác chạm lướt thông minh và đặc biệt là giao diện tối giản để anh chị không bị mỏi mắt khi theo dõi các dãy số dài.
+                    </p>
+
+                    <p>
+                        Hiểu được tâm lý đó, các nền tảng tra cứu hiện đại đã tối ưu hóa mã nguồn để đảm bảo thông tin được hiển thị rõ ràng ngay cả trong điều kiện kết nối mạng yếu. Anh chị có thể dễ dàng cập nhật nhanh chóng, chuẩn xác và tiện lợi tại trang web Xổ số Đại Phát để không bỏ lỡ bất kỳ thông báo quan trọng nào về kỳ quay thưởng của tỉnh nhà.
+                    </p>
+
+                    <h2 class="text-xl sm:text-2xl font-bold text-emerald-400 pt-4 border-t border-slate-800/80 flex items-center gap-2">
+                        <i class="fa-regular fa-clock text-lg"></i>
+                        Khung Giờ Quay Thưởng Và Lịch Mở Thưởng Xổ Số Đắk Lắk
+                    </h2>
+
+                    <h3 class="text-lg font-semibold text-white">Thời gian quay thưởng cố định</h3>
+                    <p>
+                        Đối với xổ số miền Trung nói chung và đài Đắk Lắk nói riêng, khung giờ quay thưởng trực tiếp luôn được ấn định trong khoảng thời gian từ 17h15 đến 17h35. Đây là thời điểm mà các hội đồng xổ số tiến hành các quy trình quay số để tìm ra những người sở hữu tấm vé trúng giải.
+                    </p>
+
+                    <p>
+                        Việc nắm rõ khung giờ này giúp anh chị có thể sắp xếp thời gian để theo dõi trực tiếp kết quả theo thời gian trực tiếp từ trường quay, mang lại cảm giác hồi hộp và minh bạch nhất.
+                    </p>
+
+                    <h3 class="text-lg font-semibold text-white">Lịch mở thưởng của đài Đắk Lắk</h3>
+                    <p>
+                        Theo quy định của hội đồng xổ số miền Trung, mỗi tỉnh thành sẽ có những ngày mở thưởng cố định trong tuần. Đối với tỉnh Đắk Lắk, lịch mở thưởng được ấn định vào Thứ Ba hàng tuần. Bên cạnh đó, trong cùng ngày Thứ Ba này, khu vực miền Trung còn có đài Quảng Nam cũng tiến hành mở thưởng cho giải <a href="https://xosodaiphat.com/xsqna-xo-so-quang-nam.html" target="_blank" rel="noopener" class="text-emerald-400 font-semibold underline underline-offset-4 hover:text-emerald-300">xs quang nam</a>.
+                    </p>
+
+                    <p>
+                        Việc ghi nhớ lịch trình này sẽ giúp anh chị chủ động hơn trong việc mua vé và sắp xếp thời gian tra cứu kết quả một cách khoa học.
+                    </p>
+
+                    <!-- Image 2 -->
+                    <div class="my-8 text-center space-y-2">
+                        <div class="rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-900 shadow-xl">
+                            <img src="https://sf-static.upanhlaylink.com/img/image_202610153838bec4126870ff1b44a0c4789acd4e.jpg" 
+                                 alt="Xổ số Đắk Lắk ngày 15/10/2026" 
+                                 class="w-full h-auto object-cover max-h-[450px]">
+                        </div>
+                        <p class="text-xs text-slate-400 italic">Xố số Đắk Lắk ngày 15/10/2026 - Nguồn ảnh: Xổ số Đại Phát</p>
+                    </div>
+
+                    <h2 class="text-xl sm:text-2xl font-bold text-emerald-400 pt-4 border-t border-slate-800/80 flex items-center gap-2">
+                        <i class="fa-solid fa-trophy text-lg"></i>
+                        Cơ Cấu Giải Thưởng Xổ Số Đắk Lắk Chi Tiết
+                    </h2>
+
+                    <p>
+                        Xổ số Đắk Lắk thuộc hệ thống xổ số miền Trung với loại hình vé số mệnh giá 10.000 VNĐ. Mỗi kỳ quay số sẽ thực hiện 18 lần quay để xác định các hạng giải từ giải Đặc biệt đến giải Tám. Dưới đây là danh sách cơ cấu giải thưởng cụ thể mà anh chị có thể nhận được khi sở hữu tấm vé trùng khớp với kết quả:
+                    </p>
+
+                    <div class="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
+                        <ol class="space-y-2 text-sm sm:text-base text-slate-300">
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">1.</strong> <span><strong>01 Giải Đặc biệt:</strong> Trị giá giải thưởng là 2.000.000.000 VNĐ cho mỗi vé.</span></li>
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">2.</strong> <span><strong>10 Giải Nhất:</strong> Mỗi giải trị giá 30.000.000 VNĐ.</span></li>
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">3.</strong> <span><strong>10 Giải Nhì:</strong> Mỗi giải trị giá 15.000.000 VNĐ.</span></li>
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">4.</strong> <span><strong>20 Giải Ba:</strong> Mỗi giải trị giá 10.000.000 VNĐ.</span></li>
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">5.</strong> <span><strong>70 Giải Tư:</strong> Mỗi giải trị giá 3.000.000 VNĐ.</span></li>
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">6.</strong> <span><strong>100 Giải Năm:</strong> Mỗi giải trị giá 1.000.000 VNĐ.</span></li>
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">7.</strong> <span><strong>300 Giải Sáu:</strong> Mỗi giải trị giá 400.000 VNĐ.</span></li>
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">8.</strong> <span><strong>1000 Giải Bảy:</strong> Mỗi giải trị giá 200.000 VNĐ.</span></li>
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">9.</strong> <span><strong>10.000 Giải Tám:</strong> Mỗi giải trị giá 100.000 VNĐ.</span></li>
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">10.</strong> <span><strong>09 Giải Phụ Đặc biệt:</strong> Mỗi giải trị giá 50.000.000 VNĐ dành cho các vé chỉ sai 1 chữ số ở hàng trăm ngàn so với giải Đặc biệt.</span></li>
+                            <li class="flex items-start gap-2"><strong class="text-emerald-400 font-bold min-w-[24px]">11.</strong> <span><strong>45 Giải Khuyến khích:</strong> Mỗi giải trị giá 6.000.000 VNĐ dành cho các vé trúng số ở hàng trăm ngàn nhưng chỉ sai 1 chữ số ở bất cứ hàng nào còn lại so với giải Đặc biệt.</span></li>
+                        </ol>
+                    </div>
+
+                    <h2 class="text-xl sm:text-2xl font-bold text-emerald-400 pt-4 border-t border-slate-800/80 flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-lg"></i>
+                        Địa Chỉ Liên Hệ Và Trụ Sở Công Ty Xổ Số Kiến Thiết Đắk Lắk
+                    </h2>
+
+                    <p>
+                        Khi anh chị may mắn sở hữu tấm vé trúng thưởng, việc đầu tiên cần làm là bảo quản tấm vé thật cẩn thận, không để bị rách, nát hoặc tẩy xóa thông tin. Sau đó, anh chị cần liên hệ trực tiếp với cơ quan phát hành để làm thủ tục nhận thưởng theo đúng quy định của pháp luật.
+                    </p>
+
+                    <p>
+                        Việc nắm rõ địa chỉ trụ sở sẽ giúp anh chị tiết kiệm thời gian và đảm bảo quyền lợi cá nhân của mình một cách tốt nhất.
+                    </p>
+
+                    <h3 class="text-lg font-semibold text-white">Thông tin trụ sở công ty</h3>
+                    <p>
+                        Anh chị có thể đến trực tiếp trụ sở chính của Công ty Xổ số kiến thiết Đắk Lắk tại địa chỉ: <strong>Đinh Tiên Hoàng, Phường Buôn Ma Thuột, Tỉnh Đắk Lắk</strong>. Tại đây, đội ngũ nhân viên sẽ hướng dẫn anh chị các bước làm hồ sơ lĩnh thưởng một cách tận tình và nhanh gọn.
+                    </p>
+
+                    <p>
+                        Ngoài ra, anh chị cũng có thể tra cứu lịch sử kết quả nhiều kỳ trước đó ngay tại văn phòng công ty hoặc trên các nền tảng trực tuyến uy tín để có cái nhìn tổng quan về các kỳ quay số.
+                    </p>
+
+                    <h2 class="text-xl sm:text-2xl font-bold text-emerald-400 pt-4 border-t border-slate-800/80 flex items-center gap-2">
+                        <i class="fa-solid fa-heart text-lg"></i>
+                        Lợi Ích Của Việc Tra Cứu Trực Tuyến Và Giá Trị Xã Hội
+                    </h2>
+
+                    <p>
+                        Việc chuyển đổi sang hình thức dò số trực tuyến không chỉ mang lại sự tiện lợi về mặt thời gian mà còn giúp anh chị tiếp cận thông tin một cách văn minh, hiện đại. Với giao diện được thiết kế khoa học, các con số được trình bày rõ ràng, anh chị sẽ tránh được những nhầm lẫn đáng tiếc trong quá trình đối soát vé số.
+                    </p>
+
+                    <p>
+                        Quan trọng hơn cả, việc tham gia mua vé số kiến thiết là một hành động đóng góp trực tiếp vào quỹ phúc lợi của tỉnh Đắk Lắk. Nguồn thu từ hoạt động xổ số được dùng để xây dựng trường học, bệnh viện, các công trình giao thông và hỗ trợ những hoàn cảnh khó khăn tại địa phương.
+                    </p>
+
+                    <p>
+                        Mỗi tấm vé số anh chị cầm trên tay không chỉ mang lại hy vọng về những phần thưởng giá trị mà còn là viên gạch góp phần xây dựng quê hương Đắk Lắk ngày càng giàu đẹp. Hãy luôn là người chơi có trách nhiệm, tham gia xổ số trong hạn mức tài chính cá nhân và coi đây là một hình thức giải trí lành mạnh.
+                    </p>
+
+                    <p>
+                        Để luôn có được những thông tin mới nhất về lịch mở thưởng cũng như các bảng kết quả chi tiết, anh chị đừng quên thường xuyên truy cập website Xổ số Đại Phát. Chúc anh chị có những trải nghiệm dò số thật thư giãn và ý nghĩa cùng xổ số kiến thiết Đắk Lắk.
+                    </p>
+
+                    <!-- Xem thêm Box -->
+                    <div class="p-5 rounded-2xl bg-slate-900/90 border-l-4 border-emerald-500 my-6 shadow-inner flex items-center justify-between gap-4">
+                        <div class="space-y-1">
+                            <span class="text-xs uppercase tracking-wider text-emerald-400 font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-link"></i> Xem thêm bài viết
+                            </span>
+                            <a href="https://ofuse.me/my/posts/414999" target="_blank" rel="noopener" class="text-sm sm:text-base font-semibold text-white hover:text-emerald-300 transition line-clamp-1">
+                                Chia sẻ kinh nghiệm tra cứu kết quả xổ số miền Trung trên Ofuse
+                            </a>
+                        </div>
+                        <a href="https://ofuse.me/my/posts/414999" target="_blank" rel="noopener" class="px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-slate-950 transition text-xs font-bold flex-shrink-0">
+                            Đọc ngay <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Author Signature Footer -->
+                <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <img src="https://sf-static.upanhlaylink.com/img/image_2026100959b871c14827a471570188c38fe7108c.jpg" alt="Michael Ryan" class="w-10 h-10 rounded-full border border-emerald-500/50">
+                        <div>
+                            <span class="block text-sm font-bold text-white">Michael Ryan</span>
+                            <span class="block text-xs text-slate-400">Tác giả & Blogger</span>
+                        </div>
+                    </div>
+                    <button id="like-btn" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/30 transition text-sm">
+                        <i class="fa-regular fa-heart text-emerald-500"></i>
+                        <span id="like-count">184</span> Thích
+                    </button>
+                </div>
+            </article>
+
+            <!-- Sidebar (4 Cols) -->
+            <aside class="lg:col-span-4 space-y-6">
+                
+                <!-- Live Status Card -->
+                <div class="glass-panel rounded-3xl p-6 border border-slate-800/80 relative overflow-hidden space-y-6">
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            TRỰC TIẾP XỔ SỐ ĐẮK LẮK
+                        </span>
+                        <span class="text-xs text-slate-400">Chiều Thứ 3</span>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-1">Xổ Số Kiến Thiết Đắk Lắk</h3>
+                        <p class="text-xs text-slate-400">Khung giờ mở thưởng chiều Thứ Ba</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-950/50 to-slate-900 border border-emerald-500/30 text-center space-y-1">
+                        <span class="text-xs uppercase tracking-wider text-emerald-300 font-semibold">Thời gian quay thưởng</span>
+                        <div class="text-3xl font-black text-emerald-400 tracking-tight emerald-gradient-text">
+                            17:15 - 17:35
+                        </div>
+                        <p class="text-[11px] text-slate-400">Cập nhật nhanh từng giải đấu</p>
+                    </div>
+
+                    <a href="https://xosodaiphat.com" target="_blank" rel="noopener" class="w-full py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-center text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
+                        <span>Tra Cứu Tại Xổ Số Đại Phát</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Feature Blog Widget -->
+                <div class="glass-panel rounded-3xl p-6 border border-slate-800/80 space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
+                        <i class="fa-solid fa-star text-emerald-400"></i>
+                        <span>Feature Blog</span>
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <a href="https://ofuse.me/my/posts/414999" target="_blank" class="group block space-y-2">
+                            <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
+                                <img src="https://sf-static.upanhlaylink.com/img/image_20261015066444902812d05200d7d6ce00367afb.jpg" 
+                                     alt="Feature post" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <h4 class="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors line-clamp-2">
+                                Dò Xổ Số Đắk Lắk Mọi Lúc Mọi Nơi - Trải Nghiệm Tốc Độ & Chính Xác
+                            </h4>
+                        </a>
+                    </div>
+                </div>
+
+            </aside>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-slate-800/80 bg-slate-950/80 py-8 text-slate-400 mt-12">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-slate-500">&copy; 2026 Michael Ryan. All rights reserved.</p>
+
+            <!-- Social Favicon Links -->
+            <div class="flex items-center space-x-3">
+                <a href="https://michaelryan03.github.io/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition" title="GitHub">
+                    <img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" alt="GitHub" class="w-4 h-4">
+                </a>
+                <a href="https://michaelryan03.firebaseapp.com/" target="_blank" rel="noopener" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition" title="Firebase Hosting">
+                    <img src="https://www.google.com/s2/favicons?domain=firebase.google.com&amp;sz=64" alt="Firebase Hosting" class="w-4 h-4" />
+                </a>  
+                <a href="https://michaelryan035.web.app/" target="_blank" rel="noopener" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition" title="Firebase App">
+                    <img src="https://www.google.com/s2/favicons?domain=firebase.google.com&amp;sz=64" alt="Firebase App" class="w-4 h-4" />
+                </a>     
+                <a href="https://michaelryan.codeberg.page/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition" title="Codeberg">
+                    <img src="https://www.google.com/s2/favicons?domain=codeberg.org&sz=64" alt="Codeberg" class="w-4 h-4">
+                </a>
+                <a href="https://michaelryan03.framer.website/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition" title="Framer">
+                    <img src="https://www.google.com/s2/favicons?domain=framer.com&sz=64" alt="Framer" class="w-4 h-4">
+                </a>
+                <a href="https://www.pinterest.com/michaelryan03" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition" title="Pinterest">
+                    <img src="https://www.google.com/s2/favicons?domain=pinterest.com&sz=64" alt="Pinterest" class="w-4 h-4">
+                </a>
+                <a href="https://michaelryan.michaelryan03.workers.dev/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition" title="Cloudflare Workers">
+                    <img src="https://www.google.com/s2/favicons?domain=workers.cloudflare.com&sz=64" alt="Cloudflare Workers" class="w-4 h-4">
+                </a>
+                <a href="https://michaelryan.pages.dev/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition" title="Cloudflare Pages">
+                    <img src="https://www.google.com/s2/favicons?domain=workers.cloudflare.com&sz=64" alt="Cloudflare Pages" class="w-4 h-4">
+                </a>
+                <a href="https://gitlab.com/michaelryan03" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition" title="GitLab">
+                    <img src="https://www.google.com/s2/favicons?domain=gitlab.com&sz=64" alt="GitLab" class="w-4 h-4">
+                </a>
+                <a href="https://michael-ryan03.onrender.com/" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 transition" title="Render">
+                    <img src="https://www.google.com/s2/favicons?domain=render.com&sz=64" alt="Render" class="w-4 h-4">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            const likeBtn = document.getElementById('like-btn');
+            const likeCountEl = document.getElementById('like-count');
+            let liked = false;
+            let count = 184;
+
+            if (likeBtn && likeCountEl) {
+                likeBtn.addEventListener('click', () => {
+                    if (!liked) {
+                        count++;
+                        liked = true;
+                        likeBtn.classList.add('text-emerald-400', 'border-emerald-500/50', 'bg-emerald-500/10');
+                        likeBtn.querySelector('i').classList.replace('fa-regular', 'fa-solid');
+                    } else {
+                        count--;
+                        liked = false;
+                        likeBtn.classList.remove('text-emerald-400', 'border-emerald-500/50', 'bg-emerald-500/10');
+                        likeBtn.querySelector('i').classList.replace('fa-solid', 'fa-regular');
+                    }
+                    likeCountEl.textContent = count;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
